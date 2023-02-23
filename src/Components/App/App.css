@@ -1,0 +1,46 @@
+/* General Set Up */
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../../assets/fonts/Quicksand-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'BigShoulder';
+    src: url('../../assets/fonts/BigShouldersDisplay-VariableFont_wght.ttf');
+}
+
+html{
+    font-family: 'Quicksand';
+}
+
+label, h1, h2, h3, h4, h5, h6{
+    font-family: 'BigShoulder';
+}
+
+.btn{
+    cursor: pointer;
+    padding: .5rem 1.5rem;
+    background-color: #6fb07f;
+    border: 1px solid #6fb07f;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #6fb07f;
+}
+
+.underlinedBtn{
+    cursor: pointer;
+    text-decoration: underline;
+    color: hsl(135, 29%, 56%);
+}
+
+.underlinedBtn:hover{
+    color: hsl(135, 29%, 30%);
+}
+/* Detailed Set Up */
+.mainContent{
+    padding-top: 80px;
+}
