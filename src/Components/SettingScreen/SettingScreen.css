@@ -1,0 +1,41 @@
+.settingScreen{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.setting{
+    width: 40%;
+}
+
+.setting h1{
+    font-size: 3rem;
+}
+
+.setting h3, .setting label{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.setting h3{
+    margin: 1rem 0;
+}
+
+/* Adjusting sendingSupportBlock */
+.sendingSupportBlock{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.sendingSupportBlock textarea{
+    flex: 60%;
+    height: 7rem;
+}
+
+.sendingSupportBlock label,
+.sendingSupportBlock .btn{
+    flex: 20%;
+}

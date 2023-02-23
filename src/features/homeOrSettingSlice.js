@@ -4,9 +4,9 @@ const homeOrSettingSlice = createSlice({
     name: 'homeOrSetting',
     initialState: {homeSettingState: true}, //true - home || false - setting
     reducers: {
-        changeHomeSettingState: state => {
-            if(state.homeSettingState) state.homeSettingState = false;
-            else state.homeSettingState = true;
+        changeHomeSettingState: (state, action) => {
+            console.log(state.homeSettingState)
+            state.homeSettingState = action.payload;
         }
     }
 })
