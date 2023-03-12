@@ -3,7 +3,7 @@
                Tôi sẽ add phần đó sau =D
 */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeHomeSettingState } from '../../features/homeOrSettingSlice';
 import { changeLoginState } from '../../features/loginStateSlice';
@@ -11,8 +11,10 @@ import './SettingScreen.css';
 
 const SettingScreen = () => {
     const dispatch = useDispatch();
-    dispatch(changeLoginState(true));
-    dispatch(changeHomeSettingState(false));
+    useEffect(() => {
+        dispatch(changeLoginState(true));
+        dispatch(changeHomeSettingState(false));
+    }, [])
     return (
         <div className='settingScreen'>
             <div className='setting'>

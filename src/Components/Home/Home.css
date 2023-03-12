@@ -1,0 +1,118 @@
+/* Setting for screen with no trash can */
+.home{
+    margin-top: 50px;
+}
+
+/* Setting trashBlockIcon width and height */
+.trashBlockIcon{
+    width: 75px;
+    height: 75px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+}
+
+.home, .emptyScreen{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyScreen{
+    flex-direction: column;
+}
+
+.emptyScreen .trashBlock{
+    height: 200px;
+    width: 200px;
+}
+
+.trashBlock{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    cursor: pointer;
+}
+
+.trashBlock:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.addIcon{
+    background-image: url('../../assets/images/Add.svg');
+}
+
+/* Setting for screen with trash cans */
+.cansDataScreen{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Left Screen */
+.cansDataScreenLeft{
+    flex: 65%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.cansDataScreen .trashBlock h2{
+    margin: 1rem 0;
+} 
+
+.trashBlock{
+    width: 40%;
+    min-height: 150px;
+}
+
+.fullTrash{
+    background-image: url('../../assets/images/FullTrash.svg');
+}
+
+.emptyTrash{
+    background-image: url('../../assets/images/EmptyTrash.svg');
+}
+
+/* Right Screen */
+.cansDataScreenRight{
+    flex: 35%;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.showMode, .hiddenMenu{
+    width: 50%;
+    border-radius: 10px;
+    padding: 5px 1rem;
+}
+
+.showMode{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.showAllIcon{
+    background-image: url('../../assets/images/ShowAll.svg');
+    width: 14px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-left: .5rem;
+}
+
+.hiddenMenu{
+    /* display: none; */
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.cansDataScreenRight h3{
+    margin-top: 2rem;
+}

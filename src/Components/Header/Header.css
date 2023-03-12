@@ -21,6 +21,7 @@ header{
     height: 32px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    cursor: pointer;
 }
 
 .bellButton{
