@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/garbage_can_fe/static/css/main.0ba3902f.css",
+    "main.js": "/garbage_can_fe/static/js/main.73a75e10.js",
+    "static/js/787.c7702538.chunk.js": "/garbage_can_fe/static/js/787.c7702538.chunk.js",
+    "static/media/BigShouldersDisplay-VariableFont_wght.ttf": "/garbage_can_fe/static/media/BigShouldersDisplay-VariableFont_wght.40a2009c1f821827cf52.ttf",
+    "static/media/Quicksand-VariableFont_wght.ttf": "/garbage_can_fe/static/media/Quicksand-VariableFont_wght.cf52df73d8529b4815ed.ttf",
+    "static/media/FullLogo.svg": "/garbage_can_fe/static/media/FullLogo.4c168bc638cd28ba56c777a97da33f78.svg",
+    "static/media/Gear.svg": "/garbage_can_fe/static/media/Gear.0410d23d152a5648f814.svg",
+    "static/media/Home.svg": "/garbage_can_fe/static/media/Home.91b8b5afb163a7ea5c0f.svg",
+    "static/media/FullTrash.svg": "/garbage_can_fe/static/media/FullTrash.c4171af76f15b5fdebca.svg",
+    "static/media/Bell.svg": "/garbage_can_fe/static/media/Bell.cedf23294c245d443c5e.svg",
+    "static/media/EmptyTrash.svg": "/garbage_can_fe/static/media/EmptyTrash.00aafb3683e931201d58.svg",
+    "static/media/Add.svg": "/garbage_can_fe/static/media/Add.e21b6eb7c65d80a80007.svg",
+    "index.html": "/garbage_can_fe/index.html",
+    "static/media/ShowAll.svg": "/garbage_can_fe/static/media/ShowAll.3265e89ffd989d5cbc68.svg",
+    "main.0ba3902f.css.map": "/garbage_can_fe/static/css/main.0ba3902f.css.map",
+    "main.73a75e10.js.map": "/garbage_can_fe/static/js/main.73a75e10.js.map",
+    "787.c7702538.chunk.js.map": "/garbage_can_fe/static/js/787.c7702538.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0ba3902f.css",
+    "static/js/main.73a75e10.js"
+  ]
+}
