@@ -4,6 +4,7 @@
 */
 
 import React from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { changeLoginState } from '../../features/loginStateSlice';
@@ -13,6 +14,10 @@ const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   dispatch(changeLoginState(false))
+
+  function onChangeRecaptcha(value) {
+    console.log("Captcha value:", value);
+  }
 
   function redirectLogin(){
     // Dùng để chuyển hướng sang phần đăng nhập
@@ -29,10 +34,10 @@ const Register = () => {
             <label for="password">Mật Khẩu:</label>
             <input type="password" name="password" id="password" placeholder='Vd: Bao@15022016'/>
         </div>
-        <div className='inputForm'>
-            <label for="registerCode">Mã Đăng Ký Tài Khoản:</label>
-            <input type="password" name="registerCode" id="registerCode" placeholder="Đoạn mã trên có ở mỗi chiếc thùng rác!" />
-        </div>
+        <ReCAPTCHA
+          sitekey="Your client site key"
+          onChange={onChangeRecaptcha}
+        />
         <div className="submitBlock">
           <div className="btn">Tạo Tài Khoản</div>
           <div className="underlinedBtn" onClick={redirectLogin}>Đăng nhập tài khoản</div>
