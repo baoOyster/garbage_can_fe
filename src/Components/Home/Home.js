@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { changeShowMode, getCanData, selectGCData, selectShowMode } from '../../features/garbageCanDataSlice';
 import { changeHomeSettingState } from '../../features/homeOrSettingSlice';
-import { changeLoginState } from '../../features/loginStateSlice';
 import './Home.css';
 
 const Home = () => {
@@ -59,7 +58,6 @@ const Home = () => {
   }
 
   useEffect(() => {
-    dispatch(changeLoginState(true));
     dispatch(changeHomeSettingState(true));
     dispatch(getCanData())
   }, [])

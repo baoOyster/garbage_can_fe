@@ -3,20 +3,51 @@
              I will add this feature later after finishing the server
 */
 
-import React from 'react';
+import React, { useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { changeLoginState } from '../../features/loginStateSlice';
+import { handleRegister, selectRegisterState } from '../../features/registerStateSlice';
+import { isSixToThirtyTwo } from '../../utils/supportingFunction';
 import './LoginRegister.css';
 
 const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  dispatch(changeLoginState(false))
+  const registerState = useSelector(selectRegisterState);
+
+  // Lấy dữ liêu từ form người dùng nhập
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [recaptcha, setRecaptcha] = useState(false);
+  // Error storage
+  const [usernameError, setUsernameError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
 
   function onChangeRecaptcha(value) {
-    console.log("Captcha value:", value);
+    setRecaptcha(value);
+  }
+
+  function startRegister(){
+    // Doing the registration
+
+    // Checking for username validation
+    if(!isSixToThirtyTwo(username)){
+      setUsernameError(true);
+    }
+    else setPasswordError(false);
+
+
+    // Checking for password validation
+    if(!isSixToThirtyTwo(password)){
+      setPasswordError(true);
+    }
+    else setPasswordError(false);
+
+    if(recaptcha && !usernameError && !passwordError){
+      // Start registration
+      dispatch(handleRegister(username, password));
+    }
   }
 
   function redirectLogin(){
@@ -24,22 +55,59 @@ const Register = () => {
     navigate('/login', { replace: true });
   }
   
+  
+
   return (
     <div className='loginRegister'>
+        {/* Input người dùng */}
         <div className="inputForm">
+            
             <label for="username">Tên Đăng Nhập:</label>
-            <input type="text" name="username" id="username" placeholder='Vd: baodeptraivodichvutru'/>
+
+            {usernameError && <p className='errorMessage'>
+              Tên đăng nhập bao gồm 6 đến 12 ký tự bao gồm chữ và số
+              </p>}
+            
+            <input 
+            type="text" 
+            name="username" 
+            id="username" 
+            placeholder='Vd: baodeptraivodichvutru'
+            onChange={({target}) => {
+              setUsername(target.value);
+            }}/>
+        
         </div>
+
         <div className="inputForm">
+
             <label for="password">Mật Khẩu:</label>
-            <input type="password" name="password" id="password" placeholder='Vd: Bao@15022016'/>
+            
+            {passwordError && <p className='errorMessage'>
+              Mật Khẩu bao gồm 6 đến 12 ký tự bao gồm chữ và số
+              </p>}
+
+            <input type="password" 
+            name="password" 
+            id="password" 
+            placeholder='Vd: Bao@15022016'
+            onChange={({target}) => {
+              setPassword(target.value);
+            }}/>
+        
         </div>
+
+        {/* Các nút chức năng dùng cho thực hiện việc đăng ký */}
+        {!recaptcha && <p className='errorMessage'>
+              Vui lòng xác minh bạn không phải là robot!
+              </p>}
         <ReCAPTCHA
           sitekey="6Lenx_QkAAAAALEqkyUpiZrQDBDUG7yFzKvcTslx"
           onChange={onChangeRecaptcha}
         />
+
         <div className="submitBlock">
-          <div className="btn">Tạo Tài Khoản</div>
+          <div className="btn" onClick={startRegister}>Tạo Tài Khoản</div>
           <div className="underlinedBtn" onClick={redirectLogin}>Đăng nhập tài khoản</div>
         </div>
     </div>
