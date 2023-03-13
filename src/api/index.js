@@ -1,4 +1,19 @@
 import axios from "axios";
-const API = axios.create({baseURL: "http://localhost:4500"});
+const API = axios.create({baseURL: "https://garbagecanserver.onrender.com"});
 
-export const fetchData = () => API.get('/garbageCans');
+const login = (username, password) => {
+    API.post('/login', 
+    {
+        username: username, 
+        password: password
+    }, 
+    {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+}
+
+const fetchData = () => API.get('/garbageCans');
+
+export {fetchData, login}

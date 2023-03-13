@@ -4,6 +4,7 @@
 */
 
 import React from 'react';
+import { login } from '../../api';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { changeLoginState } from '../../features/loginStateSlice';
@@ -19,6 +20,10 @@ const Login = () => {
     navigate('/register', { replace: true });
   }
 
+  function handleLogin(){
+
+  }
+
   return (
     <div className='loginRegister'>
         <div className="inputForm">
@@ -30,7 +35,7 @@ const Login = () => {
           <input type="password" name="password" id="password" placeholder='Vd: Bao@15022016'/>
         </div>
         <div className='submitBlock'>
-          <div className="btn">Truy Cập</div>
+          <div className="btn" onClick={handleLogin()}>Truy Cập</div>
           <div className="underlinedBtn" onClick={redirectRegister}>Đăng Ký Tài Khoản</div>
         </div>
     </div>

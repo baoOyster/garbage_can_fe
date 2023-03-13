@@ -35,7 +35,7 @@ const Register = () => {
             <input type="password" name="password" id="password" placeholder='Vd: Bao@15022016'/>
         </div>
         <ReCAPTCHA
-          sitekey="Your client site key"
+          sitekey="6Lenx_QkAAAAALEqkyUpiZrQDBDUG7yFzKvcTslx"
           onChange={onChangeRecaptcha}
         />
         <div className="submitBlock">
