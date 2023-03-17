@@ -5,7 +5,7 @@ const getCanData = createAsyncThunk('garbageCanData/getCanData', async() => {
     try {
         const res = await fetchData();
         console.log(res.data);
-        return res.data;
+        return res.data.allOwnedCan;
     } catch (error) {
         console.log(error);
     }

@@ -3,12 +3,13 @@
              I will add this feature later after finishing the server
 */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { handleRegister, selectRegisterState } from '../../features/registerStateSlice';
 import { isSixToThirtyTwo } from '../../utils/supportingFunction';
+import { showPassword } from '../../utils/showPassword';
 import './LoginRegister.css';
 
 const Register = () => {
@@ -46,7 +47,7 @@ const Register = () => {
 
     if(recaptcha && !usernameError && !passwordError){
       // Start registration
-      dispatch(handleRegister(username, password));
+      dispatch(handleRegister({username, password}));
     }
   }
 
@@ -55,14 +56,16 @@ const Register = () => {
     navigate('/login', { replace: true });
   }
   
-  
+  useEffect(() => {
+    if(registerState) navigate('/garbage_can_fe/home', { replace: true });
+  }, [registerState])
 
   return (
     <div className='loginRegister'>
         {/* Input người dùng */}
         <div className="inputForm">
             
-            <label for="username">Tên Đăng Nhập:</label>
+            <label htmlFor="username">Tên Đăng Nhập:</label>
 
             {usernameError && <p className='errorMessage'>
               Tên đăng nhập bao gồm 6 đến 12 ký tự bao gồm chữ và số
@@ -81,7 +84,7 @@ const Register = () => {
 
         <div className="inputForm">
 
-            <label for="password">Mật Khẩu:</label>
+            <label htmlFor="password">Mật Khẩu:</label>
             
             {passwordError && <p className='errorMessage'>
               Mật Khẩu bao gồm 6 đến 12 ký tự bao gồm chữ và số
@@ -95,6 +98,8 @@ const Register = () => {
               setPassword(target.value);
             }}/>
         
+            <h3 className='underlinedBtn' onClick={() => showPassword("password")}>Ẩn/Hiện mật khẩu</h3>
+
         </div>
 
         {/* Các nút chức năng dùng cho thực hiện việc đăng ký */}

@@ -3,12 +3,16 @@ import loginState from './loginStateSlice';
 import homeOrSetting from './homeOrSettingSlice';
 import garbageCanData from './garbageCanDataSlice';
 import registerState from './registerStateSlice';
+import addCan from './addCanSlice';
+import canOption from './canOptionSlice';
 
 export const store = configureStore({
   reducer: {
     loginState,
     homeOrSetting,
     garbageCanData,
-    registerState
+    registerState,
+    addCan,
+    canOption
   },
 });

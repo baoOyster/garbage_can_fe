@@ -1,12 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { login } from "../api";
+import { setCookie } from "../utils/cookie";
 
 export const handleLogin = createAsyncThunk("loginState/handleLogin", 
     async ({username, password}) => {
     try {
         const res = await login(username, password);
-        console.log(res.data);
+        console.log(res);
         if(!res?.data) return false;
+        setCookie('jwt', res.data.token, 1);
         if(res.data.success) return true;
         return false;
     } catch (error) {

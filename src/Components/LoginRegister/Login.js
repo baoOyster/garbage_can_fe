@@ -10,6 +10,7 @@ import './LoginRegister.css';
 import { selectLoginState } from '../../features/loginStateSlice';
 import { handleLogin } from '../../features/loginStateSlice';
 import { isSixToThirtyTwo } from '../../utils/supportingFunction';
+import { showPassword } from '../../utils/showPassword';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const Login = () => {
 
   function redirectRegister(){
     // Dùng để chuyển hướng sang phần đăng ký 
-    navigate('/register', { replace: true });
+    navigate('/garbage_can_fe/register', { replace: true });
   }
 
   function startLogin(){
@@ -44,13 +45,14 @@ const Login = () => {
     
         if(!usernameError && !passwordError){
           // Start login
-          dispatch(handleLogin(username, password));
+
+          dispatch(handleLogin({username, password}));
         }
        
   }
 
   useEffect(() => {
-    if(loginState) navigate('/home', { replace: true });
+    if(loginState) navigate('/garbage_can_fe/home', { replace: true });
   }, [loginState])
 
   return (
@@ -59,7 +61,7 @@ const Login = () => {
         {/* Username section */}
         <div className="inputForm">
           
-          <label for="username">Tên Đăng Nhập:</label>
+          <label htmlFor="username">Tên Đăng Nhập:</label>
           
           {usernameError && <p className='errorMessage'>
             Tên đăng nhập phải có từ 6 đến 32 chữ cái gồm số và chữ
@@ -71,6 +73,7 @@ const Login = () => {
           placeholder='Vd: baodeptraivodichvutru'
           onChange={({target}) => {
             setUsername(target.value);
+            // console.log(username);
           }}/>
         
         </div>
@@ -78,7 +81,7 @@ const Login = () => {
         {/* Password section */}
         <div className="inputForm">
 
-          <label for="password">Mật Khẩu:</label>
+          <label htmlFor="password">Mật Khẩu:</label>
           
           {passwordError && <p className='errorMessage'>
             Mật khẩu phải gồm có từ 6 đến 32 chữ cái gồm số và chữ
@@ -90,8 +93,11 @@ const Login = () => {
           placeholder='Vd: Bao@15022016'
           onChange={({target}) => {
             setPassword(target.value);
+            // console.log(password)
           }}/>
         
+        <h3 className='underlinedBtn' onClick={() => showPassword("password")}>Ẩn/Hiện mật khẩu</h3>
+
         </div>
 
         {/* The submit section */}

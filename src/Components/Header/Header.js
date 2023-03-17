@@ -12,11 +12,11 @@ const Header = () => {
   const homeSettingState = useSelector(selectHomeSettingState);
 
   function redirectSetting(){
-    navigate('/setting', {replace: true});
+    navigate('/garbage_can_fe/setting', {replace: true});
   }
 
   function redirectHome(){
-    navigate('/home', {replace: true});
+    navigate('/garbage_can_fe/home', {replace: true});
   }
 
   return (
