@@ -3,15 +3,11 @@
              I will add this feature later after finishing the server
 */
 
-<<<<<<< HEAD
-import React from 'react';
-import ReCAPTCHA from "react-google-recaptcha";
-import { useDispatch } from 'react-redux';
-=======
+
 import React, { useState, useEffect } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 import { useDispatch, useSelector } from 'react-redux';
->>>>>>> regret
+
 import { useNavigate } from 'react-router-dom';
 import { handleRegister, selectRegisterState } from '../../features/registerStateSlice';
 import { isSixToThirtyTwo } from '../../utils/supportingFunction';
@@ -93,15 +89,7 @@ const Register = () => {
         </div>
 
         <div className="inputForm">
-<<<<<<< HEAD
-            <label for="password">Mật Khẩu:</label>
-            <input type="password" name="password" id="password" placeholder='Vd: Bao@15022016'/>
-        </div>
-        <ReCAPTCHA
-          sitekey="Your client site key"
-          onChange={onChangeRecaptcha}
-        />
-=======
+
 
             <label htmlFor="password">Mật Khẩu:</label>
             
@@ -130,7 +118,6 @@ const Register = () => {
           onChange={onChangeRecaptcha}
         />
 
->>>>>>> regret
         <div className="submitBlock">
           <div className="btn" onClick={startRegister}>Tạo Tài Khoản</div>
           <div className="underlinedBtn" onClick={redirectLogin}>Đăng nhập tài khoản</div>
