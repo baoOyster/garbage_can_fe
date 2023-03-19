@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getCookie } from "../utils/cookie";
+import { deleteCookie, getCookie } from "../utils/cookie";
 const API = axios.create({baseURL: "https://garbagecanserver.onrender.com"});
 
 function JWTandConfig() {
@@ -35,6 +35,11 @@ const register = (username, password) => API.post('/register',
         }
     }
 );
+
+const logout = () => {
+    console.log('Process started');
+    return API.post('/logout');
+};
 
 // Home API
 
@@ -73,4 +78,41 @@ const discardACan = (canId) => {
     return API.delete(`/user/home?token=${token}&canId=${canId}`, config);
 }
 
-export {fetchData, login, register, addSmartCan, changeCanName, changeFullState, discardACan};
+// Setting API
+const updateUser = (password, newUsername, newPassword) => {
+    const {token} = JWTandConfig();
+    const config = {
+        headers: { 
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+     },
+
+    }
+    console.log('Process update');
+    return API.put(`/user/setting?token=${token}`, 
+    {
+        password,
+        newUsername,
+        newPassword
+    }, 
+    config);
+};
+
+const deleteUser = () => {
+    const {token, config} = JWTandConfig();
+    console.log('Process delete');
+    return API.delete(`/user/setting?token=${token}`, config);
+}
+
+export {
+    fetchData, 
+    login, 
+    register, 
+    logout, 
+    addSmartCan, 
+    changeCanName, 
+    changeFullState, 
+    discardACan,
+    updateUser,
+    deleteUser
+};

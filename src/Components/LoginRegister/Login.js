@@ -11,11 +11,16 @@ import { selectLoginState } from '../../features/loginStateSlice';
 import { handleLogin } from '../../features/loginStateSlice';
 import { isSixToThirtyTwo } from '../../utils/supportingFunction';
 import { showPassword } from '../../utils/showPassword';
+import { changeLogoutState, selectLogoutState } from '../../features/logoutStateSlice';
+import { changeDeleteAUserState, selectDeleteAUserState } from '../../features/deleteAUserSlice';
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const loginState = useSelector(selectLoginState); 
+  const logoutState = useSelector(selectLogoutState);
+  const deleteAUserState = useSelector(selectDeleteAUserState);
+
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -45,14 +50,15 @@ const Login = () => {
     
         if(!usernameError && !passwordError){
           // Start login
-
+          dispatch(changeLogoutState(false));
+          dispatch(changeDeleteAUserState(false));
           dispatch(handleLogin({username, password}));
         }
        
   }
 
   useEffect(() => {
-    if(loginState) navigate('/garbage_can_fe/home', { replace: true });
+    if(loginState && !deleteAUserState && !logoutState) navigate('/garbage_can_fe/home', { replace: true });
   }, [loginState])
 
   return (

@@ -5,6 +5,9 @@ import garbageCanData from './garbageCanDataSlice';
 import registerState from './registerStateSlice';
 import addCan from './addCanSlice';
 import canOption from './canOptionSlice';
+import userCredential from './userCredentialSlice';
+import logoutState from './logoutStateSlice';
+import deleteAUser from './deleteAUserSlice';
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +16,9 @@ export const store = configureStore({
     garbageCanData,
     registerState,
     addCan,
-    canOption
+    canOption,
+    userCredential,
+    logoutState,
+    deleteAUser
   },
 });

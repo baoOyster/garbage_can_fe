@@ -24,7 +24,11 @@ const loginStateSlice = createSlice({
         status: 'idle', // idle / pending / fulfilled / rejected
         loginState: false
     },
-    reducers: {},
+    reducers: {
+        changeLoginState: (state, action) => {
+            state.loginState = action.payload;
+        }
+    },
     extraReducers: builder => {
         builder.addCase(handleLogin.pending, state => {
             state.status = 'pending';
@@ -40,4 +44,5 @@ const loginStateSlice = createSlice({
 })
 
 export default loginStateSlice.reducer;
+export const {changeLoginState} = loginStateSlice.actions;
 export const selectLoginState = state => state.loginState.loginState;

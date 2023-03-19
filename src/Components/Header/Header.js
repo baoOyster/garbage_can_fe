@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Header.css';
 import FullLogo from '../../assets/images/FullLogo.svg';
-import { useSelector } from 'react-redux';
-import { selectLoginState } from '../../features/loginStateSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeLoginState, selectLoginState } from '../../features/loginStateSlice';
 import { selectHomeSettingState } from '../../features/homeOrSettingSlice';
 import { useNavigate } from 'react-router-dom';
+import { getCookie } from '../../utils/cookie';
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const loginState = useSelector(selectLoginState);
   const homeSettingState = useSelector(selectHomeSettingState);
 
@@ -19,13 +21,18 @@ const Header = () => {
     navigate('/garbage_can_fe/home', {replace: true});
   }
 
+  useEffect(() => {
+    if(getCookie('jwt')){
+      dispatch(changeLoginState(true));
+    }
+  }, [])
+
   return (
     <header>
         <img src={FullLogo} alt='Logo' className='leftHeader'/>
         {loginState && <div className='rightHeader'>
             {!homeSettingState && <div className='homeSetting homeIcon' onClick={redirectHome}></div>}
             {homeSettingState && <div className='homeSetting settingIcon'onClick={redirectSetting}></div>}
-            <div className='bellButton'></div>
         </div>}
     </header>
   )
