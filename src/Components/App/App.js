@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { selectAddCanDisplay } from '../../features/addCanSlice';
 import { selectOptionDisplay } from '../../features/canOptionSlice';
 import { selectUserCredentialDisplayState } from '../../features/userCredentialSlice';
@@ -27,6 +27,7 @@ function App() {
       {userCredentialsDisplay && <ChangeUserCredential />}
       <div className="mainContent">
         <Routes>
+          <Route path="/" element={<Navigate replace to="/garbage_can_fe/login" />} />
           <Route path="/garbage_can_fe/login" element={<Login />} />
           <Route path="/garbage_can_fe/register" element={<Register />} />
           <Route path="/garbage_can_fe/setting" element={<SettingScreen />} />
