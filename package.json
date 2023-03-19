@@ -1,6 +1,7 @@
 {
   "homepage": "https://baoOyster.github.io/garbage_can_fe",
   "name": "garbagecancontroller_fe",
+  "homepage": "https://baoOyster.github.io/garbage_can_fe",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

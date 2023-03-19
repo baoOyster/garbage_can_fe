@@ -2,9 +2,13 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchData } from "../api";
 
 const getCanData = createAsyncThunk('garbageCanData/getCanData', async() => {
-    const res = await fetchData();
-    console.log(res.data);
-    return res.data;
+    try {
+        const res = await fetchData();
+        console.log(res.data);
+        return res.data.allOwnedCan;
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 const garbageCanDataSlice = createSlice({

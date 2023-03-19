@@ -1,0 +1,60 @@
+.greyBackground{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.canForm{
+    position: absolute;
+    background-color: #fff;
+    width: 50%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cancel button styling */
+
+.cancelCanForm{
+    width: 40px;
+    height: 40px;
+    background-image: url('../../../assets/images/greenXmark.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    z-index: 10;
+}
+
+.cancelCanForm:hover{
+    background-image: url('../../../assets/images/redXmark.svg');
+}
+
+/* add can from detail */
+.canFormDetail{
+    position: absolute;
+    padding: 0 10%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.canFormDetail > h3 {
+    margin: 1rem 0;    
+}
+
+.middleBtnInOptionForm{
+    margin: 1rem 0;
+}
