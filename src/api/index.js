@@ -64,11 +64,19 @@ const changeCanName = (canId, name) => {
     return API.put(`/user/name?id=${canId}&newName=${name}`, {}, config);
 }
 
-const changeFullState = (canId) => {
+const changeFullState = (canId, full_state) => {
     if(!canId) return console.log('Please provided a canId');
-    const {config} = JWTandConfig();
+    const {token} = JWTandConfig();
+    const config = {
+        headers: { 
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        }
+    }
     console.log("Process started");
-    return API.put(`/user/switch?id=${canId}`, {}, config);
+    return API.put(`/user/switch?id=${canId}`, {
+        full_state: full_state
+    }, config);
 }
 
 const discardACan = (canId) => {
