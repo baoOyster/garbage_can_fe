@@ -74,6 +74,7 @@ const changeFullState = (canId, full_state) => {
         }
     }
     console.log("Process started");
+    console.log(canId)
     return API.put(`/user/switch?id=${canId}`, {
         full_state: full_state
     }, config);

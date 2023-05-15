@@ -38,3 +38,9 @@
 .submitBlock .btn{
     margin-right: 1rem;
 }
+
+@media only screen and (max-width: 767px) {
+    .inputForm input{
+        width: 90%;
+    }
+}

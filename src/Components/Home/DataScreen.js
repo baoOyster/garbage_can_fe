@@ -18,18 +18,20 @@ const DataScreen = () => {
 
   function referShowMode(){
     if(showMode === "everything"){
-      return garbageCansData.map((box, index) => <div key={index} className='trashBlock' 
+      return garbageCansData.map((box, index) => {
+        console.log(box.is_full);
+        return (<div key={index} className='trashBlock' 
       onClick={() => openOption(box._id.toString())}>
       <h2>{box.name}</h2>
-      {box.isFull && <div className='fullTrash trashBlockIcon'></div>}
-      {box.isFull && <h2>Đầy</h2>}
-      {!box.isFull && <div className='emptyTrash trashBlockIcon'></div>}
-      {!box.isFull && <h2>Rỗng</h2>}
+      {box.is_full && <div className='fullTrash trashBlockIcon'></div>}
+      {box.is_full && <h2>Đầy</h2>}
+      {!box.is_full && <div className='emptyTrash trashBlockIcon'></div>}
+      {!box.is_full && <h2>Rỗng</h2>}
       {`#${index}`}
-    </div>)
+    </div>)})
     }else if(showMode === "empty"){
       return garbageCansData.map((box, index) => {
-      if(!box.isFull){
+      if(!box.is_full){
         return (<div key={index} className='trashBlock'
         onClick={() => openOption(box._id.toString())}>
           <h2>{box.name}</h2>
@@ -40,7 +42,7 @@ const DataScreen = () => {
       })
     }else{
       return garbageCansData.map((box, index) => {
-        if(box.isFull){
+        if(box.is_full){
           return (<div key={index} className='trashBlock'
           onClick={() => openOption(box._id.toString())}>
             <h2>{box.name}</h2>
