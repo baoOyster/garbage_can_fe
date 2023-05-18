@@ -25,7 +25,7 @@ const CanOption = () => {
                     <div className="btn" 
                     onClick={() => {changeCanName(canId, name)}}>Thay đổi tên thùng rác</div>
                     <div className="btn middleBtnInOptionForm"
-                    onClick={() => {changeFullState(canId, true)}}>Chuyển đổi chế độ đầy của thùng rác</div>
+                    onClick={() => {changeFullState(canId, false)}}>Chuyển đổi chế độ đầy của thùng rác</div>
                     <div className="btn"
                     onClick={() => {discardACan(canId)}}>Xóa thùng rác</div>
                 </div>
