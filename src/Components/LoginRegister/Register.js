@@ -59,7 +59,7 @@ const Register = () => {
 
   function redirectLogin(){
     // Dùng để chuyển hướng sang phần đăng nhập
-    navigate('/login', { replace: true });
+    navigate('/garbage_can_fe/login', { replace: true });
   }
   
   useEffect(() => {
