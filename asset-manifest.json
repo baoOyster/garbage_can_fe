@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/garbage_can_fe/static/css/main.14c23e95.css",
-    "main.js": "/garbage_can_fe/static/js/main.1c2d07bf.js",
+    "main.js": "/garbage_can_fe/static/js/main.1b703b72.js",
     "static/js/787.c7702538.chunk.js": "/garbage_can_fe/static/js/787.c7702538.chunk.js",
     "static/media/BigShouldersDisplay-VariableFont_wght.ttf": "/garbage_can_fe/static/media/BigShouldersDisplay-VariableFont_wght.40a2009c1f821827cf52.ttf",
     "static/media/Quicksand-VariableFont_wght.ttf": "/garbage_can_fe/static/media/Quicksand-VariableFont_wght.cf52df73d8529b4815ed.ttf",
@@ -17,11 +17,11 @@
     "static/media/greenXmark.svg": "/garbage_can_fe/static/media/greenXmark.819fb06529ed51877504.svg",
     "static/media/redXmark.svg": "/garbage_can_fe/static/media/redXmark.3a4697dcb7679b4e6621.svg",
     "main.14c23e95.css.map": "/garbage_can_fe/static/css/main.14c23e95.css.map",
-    "main.1c2d07bf.js.map": "/garbage_can_fe/static/js/main.1c2d07bf.js.map",
+    "main.1b703b72.js.map": "/garbage_can_fe/static/js/main.1b703b72.js.map",
     "787.c7702538.chunk.js.map": "/garbage_can_fe/static/js/787.c7702538.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.14c23e95.css",
-    "static/js/main.1c2d07bf.js"
+    "static/js/main.1b703b72.js"
   ]
 }
