@@ -10,15 +10,19 @@ import { changeHomeSettingState } from '../../features/homeOrSettingSlice';
 import DataScreen from './DataScreen';
 import EmptyScreen from './EmptyScreen';
 import './Home.css';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const garbageCansData = useSelector(selectGCData)
 
   useEffect(() => {
     dispatch(changeHomeSettingState(true));
     dispatch(getCanData())
   }, [])
+
+  if(garbageCansData == "error") navigate('/garbage_can_fe/login', { replace: true });
 
   // const garbageCansData = null;
   return (
